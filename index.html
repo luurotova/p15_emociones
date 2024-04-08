@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Emociones</title>
+</head>
+
+<body>
+    <div class="emotions ">
+        <header class="emotions__tittle">
+            <h1 class="rounded">Dev Emotions Tool</h1>
+        </header>
+        <section class="emotions__content">
+            <aside class="emotions__in">
+                <ul class="emotions__list rounded">
+                    <li><button class="emotions__button" id="iluminacion">ILUMINACIÓN</button></li>
+                    <li><button class="emotions__button" id="paz">PAZ</button></li>
+                    <li><button class="emotions__button" id="alegria">ALEGRIA</button></li>
+                    <li><button class="emotions__button" id="amor">AMOR</button></li>
+                    <li><button class="emotions__button" id="razonamiento">RAZONAMIENTO</button></li>
+                    <li><button class="emotions__button" id="aceptacion">ACEPTACIÓN</button></li>
+                    <li><button class="emotions__button" id="voluntad">VOLUNTAD</button></li>
+                    <li><button class="emotions__button" id="neutralidad">NEUTRALIDAD</button></li>
+                    <li><button class="emotions__button" id="coraje">CORAJE</button></li>
+                    <li><button class="emotions__button" id="orgullo">ORGULLO</button></li>
+                    <li><button class="emotions__button" id="ira">IRA</button></li>
+                    <li><button class="emotions__button" id="deseo">DESEO</button></li>
+                    <li><button class="emotions__button" id="miedo">MIEDO</button></li>
+                    <li><button class="emotions__button" id="tristeza">TRISTEZA</button></li>
+                    <li><button class="emotions__button" id="apatia">APATÍA</button></li>
+                    <li><button class="emotions__button" id="culpa">CULPA</button></li>
+                    <li><button class="emotions__button" id="verguenza">VERGUENZA</button></li>
+                </ul>
+            </aside>
+            <main class="emotions__right rounded">
+                <div class="emotions__in"></div>
+            </main>
+        </section>
+    </div>
+    <script>
+        const messeages = {
+            verguenza: "Me da verguenzilla preguntar dudas",
+            culpa: "Tenía que haber hecho el código más limpio pero me pudo la pereza :/",
+            apatia: "Paso de programar hoy, es más, paso de pasar de programar...",
+            tristeza: "No valgo para programar",
+            miedo: "Uuuuuuuuuuhhh!! Que viene Javascript!!",
+            deseo: "Me casaba con esa línea de css (pero te dejó por otro, pobre diablo :D)",
+            ira: "GRFTXFGRR!!! No me funciona!!!!",
+            orgullo: "Mira que PEASO de web he hecho",
+            coraje: "No me sale ni una práctica pero VAMOS VAMOS!!, que rule JS!!!",
+            neutralidad: "Soy programador y los programadores no tienen emociones",
+            voluntad: "Si digo que acabo hoy el programa, lo acabo hoy.",
+            aceptacion: "Hoy me ha vencido del código, mañana será otro día.",
+            razonamiento: "Math.floor(x+34-y/array.lenght)...",
+            amor: "Me quiero tanto que en San Valentín reservo cena para 2 y voy sol@",
+            alegria: "Ohhhh siii, es viernes!!!!!",
+            paz: "He terminado el proyecto",
+            iluminacion: "En mi barrio me llaman el Dalai Lama de Javascript",
+        }
+
+        const allButtons = document.querySelectorAll('.emotions__button');
+        const result = document.querySelector('.emotions__right');
+
+
+        allButtons.forEach((item, index) => {
+            //defino color
+            const color = "hsl(" + Math.floor(280 - (index * (280 / allButtons.length))) + ", 100%, 50%)";
+
+            //asigno color al item
+            item.style.color = color;
+
+            item.addEventListener('click', cargarMensaje);
+
+        });
+
+        function cargarMensaje(){
+            console.log(this.value);
+            result.innerHTML = messeages[this.id];
+        }
+    </script>
+
+</body>
+
+</html>
